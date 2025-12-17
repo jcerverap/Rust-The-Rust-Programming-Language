@@ -32,7 +32,6 @@ fn do_index() {
 
     let my_array: [u8; 5] = [1, 2, 3, 4, 5];
     let mut s_index: String = String::new();
-    let mut index: u8 = 0;
 
     loop {
 
@@ -53,7 +52,7 @@ fn do_index() {
             Ok(num) => println!("Element at index {}: {}", num, my_array[num as usize]),
             Err(_) => println!("'{}' is not a number", s_index),
         }
-        
+
         s_index.clear();
     }
 }
