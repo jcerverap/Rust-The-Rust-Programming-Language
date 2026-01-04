@@ -30,7 +30,7 @@ pub fn do_ownership() {
                                        // moves its return value into s6
     println!("s6 = {}", s6);
 
-    let (mut s7, len) = calculate_length(s6);
+    let (s7, len) = calculate_length(s6);
     println!("The length of '{}' is {}.", s7, len);
 
     // References and Borrowing
