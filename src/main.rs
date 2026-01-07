@@ -1,4 +1,5 @@
-use std::f32::consts::E;
+use strum::IntoEnumIterator; 
+use strum::EnumIter; 
 
 mod variables;
 mod data_types;
@@ -8,7 +9,9 @@ mod ownership;
 mod structs;
 mod enums;
 
-enum ExerciseMode{
+
+#[derive(Debug, EnumIter)]
+enum ExerciseMode {
 
     Variables,
     DataTypes,
@@ -19,19 +22,30 @@ enum ExerciseMode{
     Enums
 }
 
-const EXERCISE_MODE:ExerciseMode = ExerciseMode::Enums;
+impl ExerciseMode {
+
+    fn do_exercise(&self) {
+
+        match self {
+            ExerciseMode::Variables => variables::do_variables(),
+            ExerciseMode::DataTypes => data_types::do_data_types(),
+            ExerciseMode::Functions => functions::do_functions(),
+            ExerciseMode::ControlFlow => control_flow::do_control_flow(),
+            ExerciseMode::Ownership => ownership::do_ownership(),
+            ExerciseMode::Structs => structs::do_structs(),
+            ExerciseMode::Enums => enums::do_enums(),
+            _ => println!("Exercise mode not implemented yet."),
+
+        }
+    }
+}
 
 fn main() {
 
-    match EXERCISE_MODE {
-        ExerciseMode::Variables => variables::do_variables(),
-        ExerciseMode::DataTypes => data_types::do_data_types(),
-        ExerciseMode::Functions => functions::do_functions(),
-        ExerciseMode::ControlFlow => control_flow::do_control_flow(),
-        ExerciseMode::Ownership => ownership::do_ownership(),
-        ExerciseMode::Structs => structs::do_structs(),
-        ExerciseMode::Enums => enums::do_enums(),
-        _ => println!("Exercise mode not implemented yet."),
-    }
+    for mode in ExerciseMode::iter() {
+
+        mode.do_exercise();
+    }        
+
 }
 

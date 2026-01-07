@@ -35,15 +35,18 @@ pub fn do_enums() {
 
     println!("--- Enums Exercise ---");
 
-    let my_direction = Direction::North;
-    println!("My direction is: {:?}", my_direction);
+    let mut my_direction = Direction::North;
 
-    match my_direction {
-        Direction::North => println!("Heading North!"),
-        Direction::South => println!("Heading South!"),
-        Direction::East  => println!("Heading East!"),
-        Direction::West  => println!("Heading West!"),
-    }
+    print_direction(my_direction);
+
+    my_direction = Direction::South;
+    print_direction(my_direction);
+
+    my_direction = Direction::East;
+    print_direction(my_direction);
+
+    my_direction = Direction::West;
+    print_direction(my_direction);
 
     do_ip_address();
     do_ip_address2();
@@ -52,6 +55,18 @@ pub fn do_enums() {
     do_coin2();
     do_lets();
 
+}
+
+fn print_direction(direction: Direction) {
+
+    println!("My direction is: {:?}", direction);
+   
+    match direction {
+        Direction::North => println!("Heading North"),
+        Direction::South => println!("Heading South"),
+        Direction::East  => println!("Heading East"),
+        Direction::West  => println!("Heading West"),
+    }
 }
 
 fn do_ip_address() {
