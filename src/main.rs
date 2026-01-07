@@ -8,7 +8,9 @@ mod control_flow;
 mod ownership;
 mod structs;
 mod enums;
-
+mod vectors;
+mod hash_maps;
+mod strings;
 
 #[derive(Debug, EnumIter)]
 enum ExerciseMode {
@@ -19,7 +21,10 @@ enum ExerciseMode {
     ControlFlow,
     Ownership,
     Structs,
-    Enums
+    Enums,
+    Vectors,
+    HashMaps,
+    Strings,
 }
 
 impl ExerciseMode {
@@ -34,6 +39,9 @@ impl ExerciseMode {
             ExerciseMode::Ownership => ownership::do_ownership(),
             ExerciseMode::Structs => structs::do_structs(),
             ExerciseMode::Enums => enums::do_enums(),
+            ExerciseMode::Vectors => vectors::do_vectors(),
+            ExerciseMode::HashMaps => hash_maps::do_hash_maps(),
+            ExerciseMode::Strings => strings::do_strings(),
             _ => println!("Exercise mode not implemented yet."),
 
         }

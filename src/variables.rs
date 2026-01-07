@@ -7,7 +7,7 @@ pub fn do_variables(){
 
     println!("Guess the number!");
 
-    let secret_number:String = rand::thread_rng().gen_range(1..=100).to_string();
+    let secret_number:u8 = rand::thread_rng().gen_range(1..=100);
 
     loop {
         
@@ -27,7 +27,7 @@ pub fn do_variables(){
         } else {
 
 
-            match guess.cmp(&secret_number) {
+            match guess.trim().parse::<u8>().unwrap().cmp(&secret_number) {
                     std::cmp::Ordering::Less => println!("Too small!"),
                     std::cmp::Ordering::Greater => println!("Too big!"),
                     std::cmp::Ordering::Equal => println!("You win!"),
